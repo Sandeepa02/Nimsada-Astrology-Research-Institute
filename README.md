@@ -41,13 +41,13 @@ The goal is to create a balanced framework where classical insight and analytica
 
 ```bash
 git clone https://github.com/Sandeepa02/Nimsada-Astrology-Research-Institute.git
-cd Nimsada-Astrology-Research-Institute
+cd Imsada-Astrology-Research-Institute
 ```
 
 ## Suggested Project Structure
 
 ```text
-Nimsada-Astrology-Research-Institute/
+Imsada-Astrology-Research-Institute/
 ├── README.md
 ├── docs/
 ├── research/
