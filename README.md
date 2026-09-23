@@ -1,4 +1,4 @@
-# Nimsada Astrology Research Institute
+# Imsada Astrology Research Institute
 
 A research-oriented astrological institute focused on blending traditional astrological wisdom with rigorous mathematical and experimental analysis to provide clarity for life’s most important decisions.
 
