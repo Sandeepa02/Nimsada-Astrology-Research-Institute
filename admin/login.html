@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>පරිපාලක පිවිසුම</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="auth-page">
+  <div class="auth-container"><div class="auth-card">
+    <div class="auth-header"><a href="../index.html" class="auth-logo">ඉම්සද</a><h1 class="auth-title">පරිපාලක පිවිසුම</h1></div>
+    <div id="auth-alert" class="auth-alert" role="alert"></div>
+    <form id="admin-login-form" class="auth-form" novalidate>
+      <div class="form-group"><label for="admin-email" class="form-label">විද්‍යුත් තැපෑල</label><input type="email" id="admin-email" class="form-input" value="admin@imsada.lk" required><span class="field-error-msg">වලංගු විද්‍යුත් තැපෑලක් ඇතුළත් කරන්න.</span></div>
+      <div class="form-group"><label for="admin-password" class="form-label">මුරපදය</label><input type="password" id="admin-password" class="form-input" value="demo1234" required><span class="field-error-msg">මුරපදය ඇතුළත් කරන්න.</span></div>
+      <button type="submit" class="btn btn-gold w-100">පිවිසෙන්න</button>
+    </form>
+    <div class="auth-footer"><a href="../index.html">මුල් පිටුවට ආපසු යන්න</a></div>
+  </div></div>
+  <script src="../js/api.js"></script><script src="../js/auth.js"></script>
+</body>
+</html>

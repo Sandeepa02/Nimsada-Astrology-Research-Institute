@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>අපගේ සේවාවන් | ඉම්සද ජ්යෝතිර්විද්යා පර්යේෂණ ආයතනය</title>
+  
+  <meta name="description" content="ඉම්සද ජ්යෝතිර්විද්යා පර්යේෂණ ආයතනයේ පර්යේෂණාත්මක සේවාවන්: කේන්ද්‍ර පරීක්ෂාව, විවාහ පොරොන්දම්, ව්‍යාපාරික මගපෙන්වීම, වාස්තු ශාස්ත්‍රය, සුබ මුහුර්ත, ග්‍රහ ශාන්තිකර්ම.">
+  <meta name="theme-color" content="#060919">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+  <canvas id="star-canvas" class="star-canvas" aria-hidden="true"></canvas>
+
+  <!-- Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="මුල් පිටුවට යන්න">
+        <div class="logo-symbol" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" class="gold-svg">
+            <circle cx="24" cy="24" r="22" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <circle cx="24" cy="24" r="17" stroke="url(#goldGrad)" stroke-width="1"/>
+            <path d="M24 6L26.8 19.5L38 14L28.5 24L38 34L26.8 28.5L24 42L21.2 28.5L10 34L19.5 24L10 14L21.2 19.5L24 6Z" fill="url(#goldGrad)" opacity="0.85"/>
+            <circle cx="24" cy="24" r="4.5" fill="#f8e7a2"/>
+            <defs>
+              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f5e197"/>
+                <stop offset="50%" stop-color="#d4af37"/>
+                <stop offset="100%" stop-color="#aa811a"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">ඉම්සද</span>
+          <span class="brand-sub">ජ්යෝතිර්විද්යා පර්යේෂණ ආයතනය</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="ප්‍රධාන මෙනුව">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">මුල් පිටුව</a></li>
+          <li class="nav-item"><a href="index.html#about" class="nav-link">අප ගැන</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link active">සේවාවන්</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">අප අමතන්න</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="auth/login.html" class="btn btn-glass header-cta">පිවිසෙන්න</a>
+        <a href="auth/register.html" class="btn btn-gold header-cta">ලියාපදිංචි වන්න</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="මෙනුව විවෘත කරන්න" aria-expanded="false" aria-controls="mobile-drawer">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <div class="mobile-drawer-inner">
+        <div class="mobile-drawer-header">
+          <span class="mobile-brand-title">ඉම්සද ජ්යෝතිර්විද්යා</span>
+          <button class="drawer-close" id="drawer-close" aria-label="මෙනුව වසන්න">&times;</button>
+        </div>
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">මුල් පිටුව</a></li>
+          <li><a href="index.html#about" class="mobile-nav-link">අප ගැන</a></li>
+          <li><a href="services.html" class="mobile-nav-link active">සේවාවන්</a></li>
+          <li><a href="contact.html" class="mobile-nav-link">අප අමතන්න</a></li>
+        </ul>
+        <div class="mobile-drawer-footer">
+          <a href="auth/login.html" class="btn btn-glass w-100">පිවිසෙන්න</a>
+          <a href="auth/register.html" class="btn btn-gold w-100">ලියාපදිංචි වන්න</a>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-backdrop" id="mobile-backdrop"></div>
+  </header>
+
+  <main style="padding-top: 140px; padding-bottom: 90px;">
+    <div class="container">
+      
+      <div class="section-header text-center reveal-fade">
+        <div class="section-kicker">අපගේ සේවා මාලාව</div>
+        <h1 class="section-title">පර්යේෂණාත්මක ඡ්‍යෝතිර්විද්‍යා සේවාවන්</h1>
+        <p class="section-desc">
+          සාම්ප්‍රදායික ගුරුකුල ශාස්ත්‍රය සහ නූතන ගණිතමය දත්ත විශ්ලේෂණය පදනම් කරගත් පූර්ණ සේවාවන්.
+        </p>
+        <div class="gold-divider"></div>
+      </div>
+
+      <div class="services-grid">
+        
+        <!-- Service 1 -->
+        <article class="service-card glass-card reveal-up" data-delay="100">
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="service-svg">
+              <circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/>
+            </svg>
+          </div>
+          <div class="service-tag">මූලික පරීක්ෂාව</div>
+          <h2 class="service-title">කේන්ද්‍ර සටහන සහ සම්පූර්ණ ජීවිත පලාපල පරීක්ෂාව</h2>
+          <p class="service-desc">
+            උපන් වේලාව, දිනය සහ ස්ථානය අනුව නිරයන ක්‍රමයට ලග්නය, නවාංශකය සහ දශා අතුරුදශා ගණනය කර ජීවිතයේ ඉදිරි කාලය පිළිබඳ නිරවුල් විග්‍රහය.
+          </p>
+          <ul class="service-points">
+            <li>ලග්න හා නවාංශක කේන්ද්‍ර විග්‍රහය</li>
+            <li>මහා දශා සහ අතුරු දශා ගණනය</li>
+            <li>අධ්‍යාපනය, සෞඛ්‍යය සහ ආර්ථික ඉදිරි ගමන</li>
+          </ul>
+          <a href="auth/login.html" class="btn btn-outline-gold btn-sm w-100" style="margin-top: auto;">හමුවීමක් වෙන්කරගන්න</a>
+        </article>
+
+        <!-- Service 2 -->
+        <article class="service-card glass-card reveal-up" data-delay="200">
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="service-svg">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <div class="service-tag">විවාහ හා යුග දිවිය</div>
+          <h2 class="service-title">විවාහ පොරොන්දම් හා සාර්ථක යුග දිවි ගැළපීම</h2>
+          <p class="service-desc">
+            විසි පොරොන්දම පමණක් නොව, දෙදෙනාගේ චිත්ත ස්වභාවය, ආයුෂ, සෞඛ්‍යය, දරුපල සහ ග්‍රහ ගැළපීම පිළිබඳ විද්‍යාත්මක පර්යේෂණාත්මක නිගමන.
+          </p>
+          <ul class="service-points">
+            <li>විසි පොරොන්දම් පරීක්ෂාව</li>
+            <li>චන්ද්‍ර, කුජ, ශනි පාප දෘෂ්ටි සංසන්දනය</li>
+            <li>යුග දිවියේ සාමකාමී පැවැත්ම තහවුරු කිරීම</li>
+          </ul>
+          <a href="auth/login.html" class="btn btn-outline-gold btn-sm w-100" style="margin-top: auto;">හමුවීමක් වෙන්කරගන්න</a>
+        </article>
+
+        <!-- Service 3 -->
+        <article class="service-card glass-card reveal-up" data-delay="300">
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="service-svg">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+              <polyline points="12 11 12 17"/><polyline points="9 14 15 14"/>
+            </svg>
+          </div>
+          <div class="service-tag">ව්‍යාපාර හා ධනය</div>
+          <h2 class="service-title">ව්‍යාපාරික හා වෘත්තීය දියුණුව සඳහා මගපෙන්වීම</h2>
+          <p class="service-desc">
+            ඔබගේ කේන්ද්‍රයේ 10 වැන්න සහ 11 වැන්න පාදක කරගනිමින්, වඩාත් ලාභදායී ක්ෂේත්‍ර, හවුල් ව්‍යාපාර සහ ආයෝජන අවස්ථා සඳහා කාල නිර්ණය.
+          </p>
+          <ul class="service-points">
+            <li>වෘත්තීය සාර්ථකත්වයට සුදුසුම ක්ෂේත්‍ර තේරීම</li>
+            <li>නව ව්‍යාපාර ආරම්භයට සුබ කාල වකවානු</li>
+            <li>මූල්‍යමය හා ආයෝජන අවදානම් අවම කරගැනීම</li>
+          </ul>
+          <a href="auth/login.html" class="btn btn-outline-gold btn-sm w-100" style="margin-top: auto;">හමුවීමක් වෙන්කරගන්න</a>
+        </article>
+
+        <!-- Service 4 -->
+        <article class="service-card glass-card reveal-up" data-delay="400">
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="service-svg">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <div class="service-tag">වාස්තු ශාස්ත්‍රය</div>
+          <h2 class="service-title">වාස්තු විද්‍යා හා භූමි ශක්ති පරීක්ෂාව</h2>
+          <p class="service-desc">
+            නිවාස, කාර්යාල හා ව්‍යාපාරික ගොඩනැගිලි සැලසුම් පරීක්ෂා කර, ධන ශක්තිය හා පවුලේ සාමය රඳවා ගැනීමට අවශ්‍ය වාස්තු දෝෂ නිවැරදි කිරීම්.
+          </p>
+          <ul class="service-points">
+            <li>දිශානතිය සහ බ්‍රහ්ම පාද සමතුලිතතාව</li>
+            <li>නිවාස සැලසුම් වාස්තු අනුකූලව සැකසීම</li>
+            <li>කැඩීම් බිඳීම් රහිත ප්‍රායෝගික විසඳුම්</li>
+          </ul>
+          <a href="auth/login.html" class="btn btn-outline-gold btn-sm w-100" style="margin-top: auto;">හමුවීමක් වෙන්කරගන්න</a>
+        </article>
+
+        <!-- Service 5 -->
+        <article class="service-card glass-card reveal-up" data-delay="500">
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="service-svg">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="service-tag">සුබ මුහුර්ත</div>
+          <h2 class="service-title">සුබ මුහුර්ත හා ජයග්‍රාහී නැකත් නිර්මාණය</h2>
+          <p class="service-desc">
+            විවාහ මංගල්‍ය, මුල්ගල් තැබීම, ගෙවදීම, ව්‍යාපාර ආරම්භය සහ දරුවන්ට අකුරු කියවීම ආදී වැදගත් කටයුතු සඳහා ප්‍රබල සුබ මුහුර්ත සකස් කිරීම.
+          </p>
+          <ul class="service-points">
+            <li>තිථි, වාර, නැකත්, යෝග, කරණ පංචාංග පිරිසිදුකම</li>
+            <li>ලග්න ශුද්ධිය හා හෝරා ශක්තිය පිහිටුවීම</li>
+            <li>සියලු සුබ කටයුතු සඳහා නිරවුල් නැකත් පත්‍ර</li>
+          </ul>
+          <a href="auth/login.html" class="btn btn-outline-gold btn-sm w-100" style="margin-top: auto;">හමුවීමක් වෙන්කරගන්න</a>
+        </article>
+
+        <!-- Service 6 -->
+        <article class="service-card glass-card reveal-up" data-delay="600">
+          <div class="service-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="service-svg">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <div class="service-tag">ශාන්තිකර්ම හා මැණික්</div>
+          <h2 class="service-title">ග්‍රහ අපල හා නවාංශක ශාන්තිකර්ම නිර්දේශ</h2>
+          <p class="service-desc">
+            ඒරාෂ්ටක සහ පාප ග්‍රහ අපල සමනය කිරීම පිණිස සම්ප්‍රදායික ආශිර්වාද ක්‍රම, යන්ත්‍ර මන්ත්‍ර සහ ජන්ම කේන්ද්‍රයට ගැළපෙන ඖෂධීය හා මැණික් උපදෙස්.
+          </p>
+          <ul class="service-points">
+            <li>ශනි, රාහු, කේතු ඒරාෂ්ටක අපල සමනය</li>
+            <li>කේන්ද්‍රයට ගැළපෙන වාසනාවන්ත මැණික් තේරීම</li>
+            <li>ආධ්‍යාත්මික හා ධාර්මික ප්‍රතිකර්ම මගපෙන්වීම</li>
+          </ul>
+          <a href="auth/login.html" class="btn btn-outline-gold btn-sm w-100" style="margin-top: auto;">හමුවීමක් වෙන්කරගන්න</a>
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-logo">
+            <span class="footer-logo-icon">✦</span>
+            <span class="footer-brand-title">ඉම්සද ජ්යෝතිර්විද්යා පර්යේෂණ ආයතනය</span>
+          </div>
+          <p class="footer-desc">
+            වෛදික ඡ්‍යෝතිෂ මූලධර්ම සහ නූතන පර්යේෂණාත්මක ගණිතමය ක්‍රමවේදය සංයෝජනය කරමින්, ජනතාවට නිවැරදි, විද්‍යානුකූල සහ යථාර්ථවාදී මගපෙන්වීමක් සලසන ප්‍රමුඛතම ශ්‍රී ලාංකේය ආයතනය.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">ක්ෂණික සබැඳි</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">මුල් පිටුව</a></li>
+            <li><a href="index.html#about">අප ගැන</a></li>
+            <li><a href="services.html">සේවාවන්</a></li>
+            <li><a href="contact.html">අප අමතන්න</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">පරිශීලක පිවිසුම</h4>
+          <ul class="footer-links">
+            <li><a href="auth/login.html">පරිශීලක පිවිසුම</a></li>
+            <li><a href="auth/register.html">ලියාපදිංචි වන්න</a></li>
+            <li><a href="admin/login.html">පරිපාලක පිවිසුම</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact-col">
+          <h4 class="footer-heading">විමසීම්</h4>
+          <p class="footer-info-item"><strong>දුරකථන:</strong> +94 XX XXX XXXX</p>
+          <p class="footer-info-item"><strong>විද්‍යුත් තැපෑල:</strong> info@imsada.lk</p>
+          <p class="footer-info-item"><strong>ස්ථානය:</strong> ශ්‍රී ලංකාව</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">&copy; 2026 <strong>Suraj Sandeepa</strong>. සියලුම හිමිකම් ඇවිරිණි.</p>
+        <p class="footer-credit">පාරම්පරික ඥානය හා පර්යේෂණාත්මක විශිෂ්ටත්වය</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="ඉහළට යන්න">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

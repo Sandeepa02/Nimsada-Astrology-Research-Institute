@@ -1,0 +1,205 @@
+/* ==========================================================================
+   ඉම්සද ජ්යෝතිර්විද්යා පර්යේෂණ ආයතනය - ප්‍රතිචාරාත්මක මෝස්තර (css/responsive.css)
+   Media queries for Laptop, Tablet, Mobile (1200px, 992px, 768px, 480px)
+   ========================================================================== */
+
+/* Large Screens & Small Laptops (1200px) */
+@media (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet Landscape & Medium Desktops (992px) */
+@media (max-width: 992px) {
+  /* Dashboard layout collapses sidebar */
+  .dashboard-sidebar {
+    transform: translateX(-100%);
+  }
+
+  .dashboard-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .dashboard-main {
+    margin-left: 0;
+  }
+
+  .sidebar-toggle-btn {
+    display: inline-flex;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer-brand-col {
+    grid-column: 1 / -1;
+  }
+
+  .about-grid,
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .about-card-wrap {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons,
+  .hero-features-ribbon {
+    justify-content: center;
+  }
+
+  .celestial-orbit-wrap {
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .zodiac-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet Portrait & Mobile Devices (768px) */
+@media (max-width: 768px) {
+  .main-nav,
+  .header-actions .header-cta {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .hero-section {
+    padding-top: 130px;
+    padding-bottom: 60px;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 20px;
+  }
+
+  .panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .panel-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .search-input-wrap {
+    width: 100%;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .auth-card {
+    padding: 32px 22px;
+  }
+
+  .auth-title {
+    font-size: 1.55rem;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .user-profile-badge .avatar-info {
+    display: none;
+  }
+
+  .topbar-title {
+    font-size: 1.1rem;
+  }
+
+  .dashboard-content {
+    padding: 20px 16px;
+  }
+}
+
+/* Small Screen Phones (480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.96rem;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .hero-features-ribbon {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ribbon-divider {
+    display: none;
+  }
+
+  .zodiac-wheel-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .modal-dialog {
+    padding: 24px 18px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+}

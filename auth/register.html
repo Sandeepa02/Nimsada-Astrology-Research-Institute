@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ලියාපදිංචි වන්න | ඉම්සද ජ්යෝතිර්විද්යා</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/auth.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <a href="../index.html" class="auth-logo" aria-label="මුල් පිටුවට">ඉම්සද</a>
+        <h1 class="auth-title">නව ගිණුමක් සාදන්න</h1>
+        <p class="auth-subtitle">ඔබගේ තොරතුරු ඇතුළත් කරන්න</p>
+      </div>
+      <div id="auth-alert" class="auth-alert" role="alert"></div>
+      <form id="user-register-form" class="auth-form" novalidate>
+        <div class="form-group">
+          <label for="reg-name" class="form-label">සම්පූර්ණ නම</label>
+          <input type="text" id="reg-name" class="form-input" required>
+          <span class="field-error-msg">කරුණාකර නම ඇතුළත් කරන්න.</span>
+        </div>
+        <div class="form-group">
+          <label for="reg-email" class="form-label">විද්‍යුත් තැපෑල</label>
+          <input type="email" id="reg-email" class="form-input" required autocomplete="email">
+          <span class="field-error-msg">වලංගු විද්‍යුත් තැපැල් ලිපිනයක් ඇතුළත් කරන්න.</span>
+        </div>
+        <div class="form-group">
+          <label for="reg-phone" class="form-label">දුරකථන අංකය</label>
+          <input type="tel" id="reg-phone" class="form-input" required>
+          <span class="field-error-msg">වලංගු දුරකථන අංකයක් ඇතුළත් කරන්න.</span>
+        </div>
+        <div class="form-group">
+          <label for="reg-password" class="form-label">මුරපදය</label>
+          <input type="password" id="reg-password" class="form-input" required minlength="6">
+          <span class="field-error-msg">මුරපදය අවම වශයෙන් අකුරු 6ක් විය යුතුය.</span>
+        </div>
+        <div id="password-strength-wrap" style="display:none"><div id="strength-bar-fill"></div><span id="strength-text"></span></div>
+        <div class="form-group">
+          <label for="reg-confirm-password" class="form-label">මුරපදය තහවුරු කරන්න</label>
+          <input type="password" id="reg-confirm-password" class="form-input" required>
+          <span class="field-error-msg">මුරපද දෙක සමාන විය යුතුය.</span>
+        </div>
+        <button type="submit" class="btn btn-gold w-100">ලියාපදිංචි වන්න</button>
+      </form>
+      <div class="auth-footer">දැනටමත් ගිණුමක් තිබේද? <a href="login.html">පිවිසෙන්න</a></div>
+    </div>
+  </div>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+</body>
+</html>

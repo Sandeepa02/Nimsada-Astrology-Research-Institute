@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>අප අමතන්න | ඉම්සද ජ්යෝතිර්විද්යා පර්යේෂණ ආයතනය</title>
+  
+  <meta name="description" content="ඉම්සද ජ්යෝතිර්විද්යා පර්යේෂණ ආයතනය අමතන්න - පාරම්පරික ඡ්‍යෝතිෂ ඥානය සහ පර්යේෂණාත්මක උපදෙස් ලබාගැනීමට අප හා සම්බන්ධ වන්න.">
+  <meta name="theme-color" content="#060919">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+  <canvas id="star-canvas" class="star-canvas" aria-hidden="true"></canvas>
+
+  <!-- Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="මුල් පිටුවට යන්න">
+        <div class="logo-symbol" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" class="gold-svg">
+            <circle cx="24" cy="24" r="22" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <circle cx="24" cy="24" r="17" stroke="url(#goldGrad)" stroke-width="1"/>
+            <path d="M24 6L26.8 19.5L38 14L28.5 24L38 34L26.8 28.5L24 42L21.2 28.5L10 34L19.5 24L10 14L21.2 19.5L24 6Z" fill="url(#goldGrad)" opacity="0.85"/>
+            <circle cx="24" cy="24" r="4.5" fill="#f8e7a2"/>
+            <defs>
+              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f5e197"/>
+                <stop offset="50%" stop-color="#d4af37"/>
+                <stop offset="100%" stop-color="#aa811a"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">ඉම්සද</span>
+          <span class="brand-sub">ජ්යෝතිර්විද්යා පර්යේෂණ ආයතනය</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="ප්‍රධාන මෙනුව">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">මුල් පිටුව</a></li>
+          <li class="nav-item"><a href="index.html#about" class="nav-link">අප ගැන</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">සේවාවන්</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link active">අප අමතන්න</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="auth/login.html" class="btn btn-glass header-cta">පිවිසෙන්න</a>
+        <a href="auth/register.html" class="btn btn-gold header-cta">ලියාපදිංචි වන්න</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="මෙනුව විවෘත කරන්න" aria-expanded="false" aria-controls="mobile-drawer">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <div class="mobile-drawer-inner">
+        <div class="mobile-drawer-header">
+          <span class="mobile-brand-title">ඉම්සද ජ්යෝතිර්විද්යා</span>
+          <button class="drawer-close" id="drawer-close" aria-label="මෙනුව වසන්න">&times;</button>
+        </div>
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">මුල් පිටුව</a></li>
+          <li><a href="index.html#about" class="mobile-nav-link">අප ගැන</a></li>
+          <li><a href="services.html" class="mobile-nav-link">සේවාවන්</a></li>
+          <li><a href="contact.html" class="mobile-nav-link active">අප අමතන්න</a></li>
+        </ul>
+        <div class="mobile-drawer-footer">
+          <a href="auth/login.html" class="btn btn-glass w-100">පිවිසෙන්න</a>
+          <a href="auth/register.html" class="btn btn-gold w-100">ලියාපදිංචි වන්න</a>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-backdrop" id="mobile-backdrop"></div>
+  </header>
+
+  <main style="padding-top: 140px; padding-bottom: 90px;">
+    <div class="container">
+      
+      <div class="section-header text-center reveal-fade">
+        <div class="section-kicker">සම්බන්ධ වන්න</div>
+        <h1 class="section-title">අප අමතන්න</h1>
+        <p class="section-desc">
+          ඔබේ ජ්‍යෝතිෂ අවශ්‍යතාවය හෝ පර්යේෂණාත්මක උපදේශනයක් සඳහා අප වෙත පණිවිඩයක් එවන්න.
+        </p>
+        <div class="gold-divider"></div>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Contact Information Panel -->
+        <div class="contact-info-panel reveal-left">
+          
+          <div class="contact-card glass-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div class="contact-card-content">
+              <h3 class="contact-card-title">දුරකථන අංක</h3>
+              <p class="contact-card-val"><span class="placeholder-label">[ස්ථානගත අංකය]:</span> +94 XX XXX XXXX</p>
+              <p class="contact-card-val"><span class="placeholder-label">[ස්ථානගත අංකය]:</span> +94 XX XXX XXXX</p>
+            </div>
+          </div>
+
+          <div class="contact-card glass-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="contact-card-content">
+              <h3 class="contact-card-title">විද්‍යුත් තැපෑල</h3>
+              <p class="contact-card-val"><span class="placeholder-label">[ස්ථානගත ඊමේල් ලිපිනය]:</span> info@imsada.lk</p>
+              <p class="contact-card-sub">පැය 24ක් ඇතුළත ප්‍රතිචාර දක්වනු ලැබේ</p>
+            </div>
+          </div>
+
+          <div class="contact-card glass-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="contact-card-content">
+              <h3 class="contact-card-title">ලිපිනය</h3>
+              <p class="contact-card-val"><span class="placeholder-label">[ස්ථානගත ලිපිනය]:</span> ඉම්සද ජ්යෝතිර්විද්යා පර්යේෂණ ආයතනය, ශ්‍රී ලංකාව</p>
+            </div>
+          </div>
+
+          <div class="contact-card glass-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="contact-card-content">
+              <h3 class="contact-card-title">සේවා වේලාවන්</h3>
+              <p class="contact-card-val">සඳුදා - සෙනසුරාදා: පෙ.ව. 8:30 - ප.ව. 5:30</p>
+              <p class="contact-card-sub">ඉරිදා සහ පොහෝ දින ආයතනය වසා ඇත</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Contact Form Panel -->
+        <div class="contact-form-panel reveal-right">
+          <div class="form-container glass-card">
+            
+            <h2 class="form-panel-title">පණිවිඩයක් එවන්න</h2>
+            <p class="form-panel-desc">කරුණාකර පහත පෝරමය සම්පූර්ණ කරන්න. අප ආයතනයෙන් කඩිනමින් ඔබව සම්බන්ධ කරගනු ඇත.</p>
+
+            <div class="form-status-alert success" id="form-success-banner" role="alert" style="display: none;">
+              <div class="alert-icon">✓</div>
+              <div class="alert-content">
+                <strong>ස්තූතියි!</strong> ඔබගේ පණිවිඩය සාර්ථකව සටහන් කර ඇත. අපගේ ජ්‍යෝතිර්වේදී උපදේශක කණ්ඩායම විසින් කඩිනමින් ඔබව සම්බන්ධ කරගනු ඇත.
+              </div>
+            </div>
+
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="user-name" class="form-label">නම <span class="required-star">*</span></label>
+                <input type="text" id="user-name" name="name" class="form-input" placeholder="ඔබගේ සම්පූර්ණ නම ඇතුළත් කරන්න" required>
+                <span class="field-error-msg">කරුණාකර ඔබගේ නම ඇතුළත් කරන්න.</span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="user-phone" class="form-label">දුරකථන අංකය <span class="required-star">*</span></label>
+                  <input type="tel" id="user-phone" name="phone" class="form-input" placeholder="උදා: 07XXXXXXXX" required>
+                  <span class="field-error-msg">වලංගු දුරකථන අංකයක් ඇතුළත් කරන්න (ඉලක්කම් 10ක්).</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="user-email" class="form-label">විද්‍යුත් තැපෑල <span class="required-star">*</span></label>
+                  <input type="email" id="user-email" name="email" class="form-input" placeholder="උදා: yourname@domain.com" required>
+                  <span class="field-error-msg">වලංගු විද්‍යුත් තැපැල් ලිපිනයක් ඇතුළත් කරන්න.</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="user-message" class="form-label">පණිවිඩය <span class="required-star">*</span></label>
+                <textarea id="user-message" name="message" class="form-textarea" rows="4" placeholder="ඔබගේ අවශ්‍යතාවය හෝ විමසීම මෙහි සටහන් කරන්න..." required></textarea>
+                <span class="field-error-msg">කරුණාකර ඔබගේ පණිවිඩය සටහන් කරන්න.</span>
+              </div>
+
+              <button type="submit" class="btn btn-gold btn-submit w-100" id="submit-btn">
+                <span>පණිවිඩය යවන්න</span>
+                <svg viewBox="0 0 20 20" fill="currentColor" class="btn-arrow">
+                  <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+                </svg>
+              </button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-logo">
+            <span class="footer-logo-icon">✦</span>
+            <span class="footer-brand-title">ඉම්සද ජ්යෝතිර්විද්යා පර්යේෂණ ආයතනය</span>
+          </div>
+          <p class="footer-desc">
+            වෛදික ඡ්‍යෝතිෂ මූලධර්ම සහ නූතන පර්යේෂණාත්මක ගණිතමය ක්‍රමවේදය සංයෝජනය කරමින්, ජනතාවට නිවැරදි, විද්‍යානුකූල සහ යථාර්ථවාදී මගපෙන්වීමක් සලසන ප්‍රමුඛතම ශ්‍රී ලාංකේය ආයතනය.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">ක්ෂණික සබැඳි</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">මුල් පිටුව</a></li>
+            <li><a href="index.html#about">අප ගැන</a></li>
+            <li><a href="services.html">සේවාවන්</a></li>
+            <li><a href="contact.html">අප අමතන්න</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">පරිශීලක පිවිසුම</h4>
+          <ul class="footer-links">
+            <li><a href="auth/login.html">පරිශීලක පිවිසුම</a></li>
+            <li><a href="auth/register.html">ලියාපදිංචි වන්න</a></li>
+            <li><a href="admin/login.html">පරිපාලක පිවිසුම</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact-col">
+          <h4 class="footer-heading">විමසීම්</h4>
+          <p class="footer-info-item"><strong>දුරකථන:</strong> +94 XX XXX XXXX</p>
+          <p class="footer-info-item"><strong>විද්‍යුත් තැපෑල:</strong> info@imsada.lk</p>
+          <p class="footer-info-item"><strong>ස්ථානය:</strong> ශ්‍රී ලංකාව</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">&copy; 2026 <strong>Suraj Sandeepa</strong>. සියලුම හිමිකම් ඇවිරිණි.</p>
+        <p class="footer-credit">පාරම්පරික ඥානය හා පර්යේෂණාත්මක විශිෂ්ටත්වය</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="ඉහළට යන්න">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
